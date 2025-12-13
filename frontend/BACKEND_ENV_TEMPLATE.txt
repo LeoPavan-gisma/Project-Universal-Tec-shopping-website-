@@ -1,0 +1,34 @@
+# Backend Configuration (for d:\backend\.env)
+# 
+# Server Port
+PORT=5000
+
+# MongoDB Connection
+# For local: mongodb://localhost:27017/shopease
+# For Atlas: mongodb+srv://username:password@cluster.mongodb.net/shopease
+MONGO_URI=mongodb://localhost:27017/shopease
+
+# Frontend URL (for CORS)
+FRONTEND_URL=http://localhost:5173
+
+# API Key Authentication (IMPORTANT - Required for website access)
+# This key is required for users to access the website
+# Default keys: UNIVERSAL_SHOP_2024_KEY or DEV_KEY_12345
+# For production, generate a secure random key
+API_KEY=UNIVERSAL_SHOP_2024_KEY
+
+# JWT Secret (for user authentication)
+JWT_SECRET=your_jwt_secret_key_here_use_a_random_string
+
+# Stripe (Card Payments)
+# Get your secret key from https://dashboard.stripe.com/test/apikeys
+STRIPE_SECRET=sk_test_YOUR_STRIPE_SECRET_KEY_HERE
+
+# PayPal (PayPal Payments)
+# Get credentials from https://developer.paypal.com/dashboard/
+PAYPAL_CLIENT_ID=YOUR_PAYPAL_CLIENT_ID_HERE
+PAYPAL_CLIENT_SECRET=YOUR_PAYPAL_CLIENT_SECRET_HERE
+
+# OpenAI (AI Chat Bot - Optional)
+# Get your API key from https://platform.openai.com/api-keys
+OPENAI_API_KEY=sk-YOUR_OPENAI_API_KEY_HERE

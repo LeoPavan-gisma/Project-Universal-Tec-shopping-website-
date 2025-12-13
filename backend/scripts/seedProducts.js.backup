@@ -1,0 +1,280 @@
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const productSchema = new mongoose.Schema({
+  title: String,
+  description: String,
+  price: Number,
+  image: String,
+  category: String,
+  stock: Number,
+  rating: Number,
+  reviews: Number
+});
+
+const Product = mongoose.model('Product', productSchema);
+
+const products = [
+  {
+    title: 'Wireless Bluetooth Headphones',
+    description: 'Premium noise-cancelling headphones with 30-hour battery life',
+    price: 89.99,
+    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500',
+    category: 'Audio',
+    stock: 50,
+    rating: 4.5,
+    reviews: 234
+  },
+  {
+    title: 'Smart Watch Pro',
+    description: 'Fitness tracking, heart rate monitor, GPS, and notifications',
+    price: 199.99,
+    image: 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500',
+    category: 'Wearables',
+    stock: 30,
+    rating: 4.7,
+    reviews: 567
+  },
+  {
+    title: '4K Ultra HD Webcam',
+    description: 'Professional quality video calls with auto-focus and dual microphones',
+    price: 79.99,
+    image: 'https://images.unsplash.com/photo-1587826080692-f439cd0b70da?w=500',
+    category: 'Accessories',
+    stock: 75,
+    rating: 4.3,
+    reviews: 189
+  },
+  {
+    title: 'Mechanical Gaming Keyboard',
+    description: 'RGB backlit mechanical keyboard with programmable keys',
+    price: 129.99,
+    image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?w=500',
+    category: 'Gaming',
+    stock: 40,
+    rating: 4.6,
+    reviews: 423
+  },
+  {
+    title: 'Wireless Mouse',
+    description: 'Ergonomic design with precision tracking and long battery life',
+    price: 39.99,
+    image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500',
+    category: 'Accessories',
+    stock: 100,
+    rating: 4.4,
+    reviews: 312
+  },
+  {
+    title: 'Portable SSD 1TB',
+    description: 'High-speed external storage with USB-C connectivity',
+    price: 149.99,
+    image: 'https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?w=500',
+    category: 'Storage',
+    stock: 45,
+    rating: 4.8,
+    reviews: 678
+  },
+  {
+    title: 'USB-C Hub 7-in-1',
+    description: 'Multi-port adapter with HDMI, USB 3.0, and SD card reader',
+    price: 49.99,
+    image: 'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500',
+    category: 'Accessories',
+    stock: 80,
+    rating: 4.2,
+    reviews: 156
+  },
+  {
+    title: 'Laptop Stand Adjustable',
+    description: 'Aluminum alloy laptop stand with ergonomic design',
+    price: 34.99,
+    image: 'https://images.unsplash.com/photo-1527864550417-7fd91fc51a46?w=500',
+    category: 'Accessories',
+    stock: 60,
+    rating: 4.5,
+    reviews: 289
+  },
+  {
+    title: 'Wireless Charger Pad',
+    description: 'Fast charging wireless pad compatible with all Qi devices',
+    price: 29.99,
+    image: 'https://images.unsplash.com/photo-1591290619762-c588a79b6f3c?w=500',
+    category: 'Accessories',
+    stock: 120,
+    rating: 4.3,
+    reviews: 445
+  },
+  {
+    title: 'Bluetooth Speaker',
+    description: 'Portable waterproof speaker with 360° sound and 12-hour battery',
+    price: 59.99,
+    image: 'https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=500',
+    category: 'Audio',
+    stock: 55,
+    rating: 4.6,
+    reviews: 523
+  },
+  {
+    title: 'HD Monitor 27-inch',
+    description: '2K resolution, IPS panel, 75Hz refresh rate for work and gaming',
+    price: 249.99,
+    image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500',
+    category: 'Monitors',
+    stock: 25,
+    rating: 4.7,
+    reviews: 789
+  },
+  {
+    title: 'Gaming Headset RGB',
+    description: '7.1 surround sound with noise-cancelling mic and RGB lighting',
+    price: 79.99,
+    image: 'https://images.unsplash.com/photo-1599669454699-248893623440?w=500',
+    category: 'Gaming',
+    stock: 35,
+    rating: 4.4,
+    reviews: 234
+  },
+  {
+    title: 'Webcam Ring Light',
+    description: 'Clip-on LED ring light for better video call lighting',
+    price: 24.99,
+    image: 'https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=500',
+    category: 'Accessories',
+    stock: 90,
+    rating: 4.2,
+    reviews: 167
+  },
+  {
+    title: 'Cable Management Kit',
+    description: 'Complete cable organizer set for clean desk setup',
+    price: 19.99,
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500',
+    category: 'Accessories',
+    stock: 150,
+    rating: 4.1,
+    reviews: 289
+  },
+  {
+    title: 'Graphics Tablet',
+    description: 'Digital drawing tablet with 8192 pressure levels and stylus',
+    price: 159.99,
+    image: 'https://images.unsplash.com/photo-1612198188060-c7c2a3b66eae?w=500',
+    category: 'Creative',
+    stock: 20,
+    rating: 4.8,
+    reviews: 456
+  },
+  {
+    title: 'Desk Lamp LED',
+    description: 'Eye-caring LED desk lamp with adjustable brightness and color',
+    price: 44.99,
+    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?w=500',
+    category: 'Accessories',
+    stock: 70,
+    rating: 4.5,
+    reviews: 345
+  },
+  {
+    title: 'Phone Stand Holder',
+    description: 'Adjustable phone holder for desk with anti-slip base',
+    price: 14.99,
+    image: 'https://images.unsplash.com/photo-1556656793-08538906a9f8?w=500',
+    category: 'Accessories',
+    stock: 200,
+    rating: 4.3,
+    reviews: 567
+  },
+  {
+    title: 'Power Bank 20000mAh',
+    description: 'High capacity portable charger with fast charging',
+    price: 39.99,
+    image: 'https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?w=500',
+    category: 'Accessories',
+    stock: 85,
+    rating: 4.6,
+    reviews: 678
+  },
+  {
+    title: 'Laptop Backpack',
+    description: 'Water-resistant backpack with padded laptop compartment',
+    price: 49.99,
+    image: 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=500',
+    category: 'Bags',
+    stock: 65,
+    rating: 4.4,
+    reviews: 234
+  },
+  {
+    title: 'Screen Cleaning Kit',
+    description: 'Complete cleaning kit for monitors, laptops, and screens',
+    price: 12.99,
+    image: 'https://images.unsplash.com/photo-1584438784894-089d6a62b8fa?w=500',
+    category: 'Accessories',
+    stock: 180,
+    rating: 4.0,
+    reviews: 145
+  },
+  {
+    title: 'Ergonomic Chair Cushion',
+    description: 'Memory foam seat cushion for comfortable sitting',
+    price: 34.99,
+    image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=500',
+    category: 'Furniture',
+    stock: 55,
+    rating: 4.5,
+    reviews: 289
+  },
+  {
+    title: 'HDMI Cable 6ft',
+    description: 'High-speed 4K HDMI cable with gold-plated connectors',
+    price: 9.99,
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500',
+    category: 'Accessories',
+    stock: 250,
+    rating: 4.3,
+    reviews: 456
+  },
+  {
+    title: 'Monitor Arm Mount',
+    description: 'Adjustable monitor arm for ergonomic viewing angles',
+    price: 89.99,
+    image: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=500',
+    category: 'Accessories',
+    stock: 30,
+    rating: 4.7,
+    reviews: 345
+  },
+  {
+    title: 'Blue Light Glasses',
+    description: 'Computer glasses with blue light blocking lenses',
+    price: 24.99,
+    image: 'https://images.unsplash.com/photo-1574258495973-f010dfbb5371?w=500',
+    category: 'Health',
+    stock: 100,
+    rating: 4.2,
+    reviews: 234
+  }
+];
+
+async function seedProducts() {
+  try {
+    await mongoose.connect(process.env.MONGO_URI);
+    console.log('Connected to MongoDB');
+
+    // Clear existing products
+    await Product.deleteMany({});
+    console.log('Cleared existing products');
+
+    // Insert new products
+    const result = await Product.insertMany(products);
+    console.log(`✅ Successfully seeded ${result.length} products`);
+
+    process.exit(0);
+  } catch (error) {
+    console.error('❌ Error seeding products:', error);
+    process.exit(1);
+  }
+}
+
+seedProducts();

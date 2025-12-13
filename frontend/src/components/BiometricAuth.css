@@ -1,0 +1,335 @@
+.biometric-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.biometric-modal {
+    background: white;
+    border-radius: 20px;
+    padding: 0;
+    width: 90%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.biometric-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 28px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.biometric-header h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.biometric-close {
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: #6b7280;
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.biometric-close:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.biometric-body {
+    padding: 40px 28px 32px;
+    text-align: center;
+}
+
+.fingerprint-scanner {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin: 0 auto 32px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.4s ease;
+}
+
+.fingerprint-scanner.idle {
+    box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(102, 126, 234, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 20px rgba(102, 126, 234, 0);
+    }
+}
+
+.fingerprint-scanner.scanning {
+    background: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+    animation: scanPulse 1.5s infinite;
+}
+
+@keyframes scanPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 0 25px rgba(245, 158, 11, 0);
+    }
+}
+
+.fingerprint-scanner.success {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    animation: successBounce 0.6s ease-out;
+}
+
+@keyframes successBounce {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+}
+
+.fingerprint-scanner.error {
+    background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+    animation: errorShake 0.5s ease-out;
+}
+
+@keyframes errorShake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    75% { transform: translateX(10px); }
+}
+
+.fingerprint-icon {
+    width: 100px;
+    height: 100px;
+}
+
+.fingerprint-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.fp-line {
+    fill: none;
+    stroke: rgba(255, 255, 255, 0.6);
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.idle .fp-line {
+    animation: lineFloat 3s ease-in-out infinite;
+}
+
+@keyframes lineFloat {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 0.3; }
+}
+
+.line-1 { animation-delay: 0s; }
+.line-2 { animation-delay: 0.1s; }
+.line-3 { animation-delay: 0.2s; }
+.line-4 { animation-delay: 0.3s; }
+.line-5 { animation-delay: 0.4s; }
+.line-6 { animation-delay: 0.5s; }
+.line-7 { animation-delay: 0.6s; }
+.line-8 { animation-delay: 0.7s; }
+
+.scanning .fp-line {
+    animation: lineScan 1.5s ease-in-out infinite;
+}
+
+@keyframes lineScan {
+    0%, 100% { 
+        stroke: rgba(255, 255, 255, 0.3);
+        stroke-width: 2;
+    }
+    50% { 
+        stroke: rgba(255, 255, 255, 1);
+        stroke-width: 3;
+    }
+}
+
+.fp-center {
+    fill: rgba(255, 255, 255, 0.4);
+}
+
+.scan-wave {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.6);
+    animation: waveExpand 1.5s ease-out infinite;
+}
+
+@keyframes waveExpand {
+    0% {
+        width: 80px;
+        height: 80px;
+        opacity: 1;
+    }
+    100% {
+        width: 180px;
+        height: 180px;
+        opacity: 0;
+    }
+}
+
+.success-check,
+.error-cross {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 80px;
+    font-weight: bold;
+    color: white;
+    animation: popIn 0.4s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+    }
+    60% {
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+.biometric-message {
+    font-size: 16px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    min-height: 24px;
+    transition: color 0.3s;
+}
+
+.biometric-message.scanning {
+    color: #f59e0b;
+    font-weight: 500;
+}
+
+.biometric-message.success {
+    color: #10b981;
+    font-weight: 600;
+}
+
+.biometric-message.error {
+    color: #ef4444;
+    font-weight: 500;
+}
+
+.biometric-button {
+    width: 100%;
+    padding: 14px 24px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-bottom: 12px;
+}
+
+.biometric-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.biometric-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.biometric-button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+.biometric-cancel {
+    width: 100%;
+    padding: 12px 24px;
+    background: transparent;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.biometric-cancel:hover {
+    background: #f3f4f6;
+    border-color: #9ca3af;
+    color: #1f2937;
+}
+
+@media (max-width: 480px) {
+    .biometric-modal {
+        width: 95%;
+        max-width: none;
+    }
+    
+    .fingerprint-scanner {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .fingerprint-icon {
+        width: 80px;
+        height: 80px;
+    }
+}
