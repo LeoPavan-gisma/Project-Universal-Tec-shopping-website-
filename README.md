@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Universal Shopping Site
 
 A full-stack e-commerce platform with advanced features including API key authentication, multi-language support, multiple currency options, AI assistant, and comprehensive admin panel.
@@ -627,3 +628,7 @@ cd frontend && npm run dev
 ---
 
 Happy Shopping!
+=======
+# Project-Universal-Tec-shopping-website-
+College assignment 
+>>>>>>> 0af5259b7e3115837dabd244f44a59ec33930db6
