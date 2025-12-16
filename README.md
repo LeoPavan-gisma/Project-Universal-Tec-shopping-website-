@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 Universal Shopping Site
 
 A full-stack e-commerce platform with advanced features including API key authentication, multi-language support, multiple currency options, AI assistant, and comprehensive admin panel.
@@ -17,8 +16,6 @@ Table of Contents
 - [API Endpoints]
 - [Troubleshooting]
 - [Contributing]
-
----
 
 Features
 
@@ -56,8 +53,6 @@ Admin Features
 - Dashboard with statistics
 - Inventory tracking
 
----
-
 Tech Stack
 
 Frontend
@@ -78,8 +73,6 @@ Backend
 - CORS - Cross-origin resource sharing
 - Morgan - HTTP request logger
 
----
-
 Requirements
 
 Before you begin, ensure you have the following installed:
@@ -99,9 +92,6 @@ Before you begin, ensure you have the following installed:
 node --version
 npm --version
 mongod --version
-```
-
----
 
 Installation
 
@@ -109,13 +99,11 @@ Installation
 ```bash
 git clone <your-repository-url>
 cd "Project Universal Shoping Site"
-```
 
 2. Install Backend Dependencies
 ```bash
 cd backend
 npm install
-```
 
 3. Install Frontend Dependencies
 ```bash
@@ -361,8 +349,7 @@ Project Universal Shoping Site/
 Available Scripts
 
 Backend Scripts
-
-```bash
+bash
 npm start          # Start the server
 npm run dev        # Start with nodemon (auto-reload)
 npm test           # Run tests
@@ -627,8 +614,7 @@ cd frontend && npm run dev
 
 ---
 
-Happy Shopping!
-=======
-# Project-Universal-Tec-shopping-website-
+Happy Shopping
+Project-Universal-Tec-shopping-website-
 College assignment 
->>>>>>> 0af5259b7e3115837dabd244f44a59ec33930db6
+0af5259b7e3115837dabd244f44a59ec33930db6
